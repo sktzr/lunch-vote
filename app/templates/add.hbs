@@ -1,0 +1,16 @@
+<h3>Add a new Restaurant</h3>
+ <div class="form">
+   <label><span><i class="fa fa-cutlery"></i></span>  Restaurant Name</label>
+   <br/>
+   {{input type="text" value=nameInput placeholder="Enter Restaurant Name"}}
+   <br/>
+   <label><span><i class="fa fa-link"></i></span>  Menu URL</label>
+   <br/>
+   {{input type="text" value=menuInput placeholder="Enter Menu URL"}}
+   <br/>
+   <label><span><i class="fa fa-commenting"></i></span>  Comments</label>
+   <br/>
+   {{input type="text" value=commentInput placeholder="Enter Comments"}}
+   <br/>
+   <a class="btn btn-primary pull-right" {{action 'createNewRestaurant'}} role="button">Create Restaurant</a>
+ </div>

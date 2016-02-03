@@ -1,0 +1,21 @@
+{{#if model}}
+    <table class="table">
+        <thead>
+        <th>Name</th><th>Menu</th><th>Comments</th><th>Vote</th>
+        </thead>
+        <tbody>
+        {{#each sortedRestaurants as |restaurant|}}
+            <tr>
+                <td>{{restaurant.name}}</td>
+                <td><a href="{{this.menu}}">{{restaurant.menu}}</a></td>
+                <td>{{restaurant.comments}}</td>
+                <td>{{#if restaurant.visited}}<span class="visited">Yes</span>{{else}}<span class="not-visited">No</span>{{/if}}</td>
+                <td>{{check-box action='checked' restaurant=restaurant}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    <button class='btn btn-primary pull-right' {{action 'vote'}}>Submit Vote</button>
+{{else}}
+    <p class='text-center'>Sorry, no restaurants found <i class="fa fa-meh-o fa-lg"></i></p>
+{{/if}}

@@ -1,0 +1,11 @@
+html, body {
+  margin: 20px;
+}
+
+span.visited {
+    color: green;
+}
+
+span.not-visited {
+    color: red;
+}

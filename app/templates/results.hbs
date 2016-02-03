@@ -1,0 +1,20 @@
+
+{{#if model}}
+  <h4>Results</h4>
+  <table class="table">
+        <thead>
+        <th>Name</th><th>Menu</th><th>Comments</th><th>Votes</th>
+        </thead>
+        <tbody>
+        {{#each sortedRestaurants as |restaurant|}}
+            <tr>
+                <td>{{restaurant.name}}</td>
+                <td><a href="{{menu}}">{{restaurant.menu}}</a></td>
+                <td>{{restaurant.comments}}</td>
+                <td>{{restaurant.votes}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+  <button class="btn btn-sm" {{action "clearVotes"}}>Clear out all votes</button>
+{{/if}}

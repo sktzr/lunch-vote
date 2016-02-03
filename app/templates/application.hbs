@@ -1,3 +1,14 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<div class="container">
+  <div class="row">
+    <div class="jumbotron">
+      <h2 class="text-center">Welcome to Lunch-Vote!</h2>
+      <p class="text-center">
+        <a class="btn btn-primary" href="vote" role="button">Vote</a>
+        <a class="btn btn-primary" href="results" role="button">Results</a>
+        <a class="btn btn-primary" href="add" role="button">Add a Restaurant</a>
+        <a class="btn btn-primary" href="update" role="button">Update Restaurants</a>
+      </p>
+    </div>
+    {{outlet}}
+  </div>
+</div>
