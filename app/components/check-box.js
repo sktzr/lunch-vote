@@ -5,7 +5,6 @@ export default Ember.Component.extend({
   selected: false,
   actions: {
     selected: function () {
-      const restaurant = this.get('restaurant');
       this.toggleProperty('selected');
       this.sendAction('action', this.get('restaurant'), this.get('selected'));
     }

@@ -4,6 +4,10 @@ export default Ember.Controller.extend({
   restaurantSorting: ['name'],
   sortedRestaurants: Ember.computed.sort('model', 'restaurantSorting'),
   actions: {
+    updateComments: function(restaurant){
+      restaurant.set('comments', restaurant.get('comments'));
+      restaurant.save();
+    },
     updateMenu: function(restaurant){
       restaurant.set('menu', restaurant.get('menu'));
       restaurant.save();

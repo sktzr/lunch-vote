@@ -1,13 +1,14 @@
 {{#if model}}
   <table class="table">
     <thead>
-    <th>Name</th><th>Menu</th><th>Visited</th><th>Toggle Visited</th><th>Delete</th>
+    <th>Name</th><th>Menu</th><th>Comment</th><th>Visited</th><th>Toggle Visited</th><th>Delete</th>
     </thead>
     <tbody>
     {{#each sortedRestaurants as |restaurant|}}
       <tr>
         <td><form {{action "updateName" restaurant on="focusOut"}}>{{input type="text" value=restaurant.name}}</form></td>
         <td><form {{action "updateMenu" restaurant on="focusOut"}}>{{input type="text" value=restaurant.menu}}</form></td>
+        <td><form {{action "updateComments" restaurant on="focusOut"}}>{{input type="text" value=restaurant.comments}}</form></td>
         <td>{{#if restaurant.visited}}<span class="visited">Yes</span>{{else}}<span class="not-visited">No</span>{{/if}}</td>
         <td><button class="btn btn-sm" {{action 'toggleVisited' restaurant}}>Toggle</button></td>
         <td><button class="btn btn-sm" {{action 'deleteRestaurant' restaurant}}><i class="fa fa-trash"></i></button></td>
@@ -16,5 +17,5 @@
     </tbody>
   </table>
 {{else}}
-  <p>Sorry, no restaurants found<i class="fa fa-meh-o fa-lg"></i></p> 
+  <p>Sorry, no restaurants found<i class="fa fa-meh-o fa-lg"></i></p>
 {{/if}}

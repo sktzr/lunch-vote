@@ -8,7 +8,6 @@ export default Ember.Controller.extend({
   actions: {
     vote: function() {
         var selectedList = this.get('selectedList');
-        var controller = this;
         selectedList.forEach( function(restaurant) {
           var votes = restaurant.get('votes');
           restaurant.set('votes', votes+1);
@@ -21,13 +20,11 @@ export default Ember.Controller.extend({
       if (isSelected) {
         if (selectedList.length < 3) {
             selectedList.addObject(restaurant);
-        } else {
-          let oldRestaurant = selectedList.shift();
-          selectedList.addObject(restaurant);
         }
       } else {
-          selectedList.removeObject(restaurant);
+        selectedList.removeObject(restaurant);
       }
+
       return false;
     }
   }
