@@ -5,5 +5,6 @@ export default DS.Model.extend({
   menu: DS.attr('string'),
   visited: DS.attr('boolean'),
   comments: DS.attr('string'),
+  neighborhood: DS.attr('string'),
   votes: DS.attr('number')
 });

@@ -3,13 +3,18 @@
   <h4>Results</h4>
   <table class="table">
         <thead>
-        <th>Name</th><th>Menu</th><th>Comments</th><th>Votes</th>
+        <th>Name</th><th>Menu</th><th>Neighborhood</th><th>Comments</th><th>Votes</th>
         </thead>
         <tbody>
         {{#each sortedRestaurants as |restaurant|}}
             <tr>
                 <td>{{restaurant.name}}</td>
-                <td><a href="{{menu}}">{{restaurant.menu}}</a></td>
+                <td>
+                  {{#if restaurant.menu}}
+                    <a target="_blank" href="{{restaurant.menu}}"><i class="fa fa-external-link"></i></a>
+                  {{/if}}
+                </td>
+                <td>{{restaurant.neighborhood}}</td>
                 <td>{{restaurant.comments}}</td>
                 <td>{{restaurant.votes}}</td>
             </tr>

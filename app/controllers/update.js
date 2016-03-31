@@ -16,6 +16,10 @@ export default Ember.Controller.extend({
       restaurant.set('name', restaurant.get('name'));
       restaurant.save();
     },
+    updateNeighborhood: function(restaurant){
+      restaurant.set('neighborhood', restaurant.get('neighborhood'));
+      restaurant.save();
+    },
     deleteRestaurant: function(restaurant){
       if (confirm("Are you sure you want to delete this restaurant from the database")){
         restaurant.deleteRecord();
