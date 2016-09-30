@@ -1,25 +1,58 @@
 {{#if model}}
+  <div class="mid-opacity rounded-corners clearfix">
+    <div class="text-center">
+      <label> Please select 3 restaurants and hit the submit button on the bottom right of this page. </label>
+      <br>
+      <br>
+    </div>
     <table class="table">
-        <thead>
-        <th>Name</th><th>Menu</th><th>Neighborhood</th><th>Comments</th><th>Vote</th>
-        </thead>
-        <tbody>
+      <thead>
+        <td class="clickable" {{action "sortBy" 'name'}}>
+          <label class="clickable">
+            Name
+            <i class="fa icon-color {{if sortedOnName (if sortAscend "fa-sort-alpha-asc" "fa-sort-alpha-desc") 'fa-unsorted'}}"></i>
+          </label>
+        </td>
+        <td><label>Menu</label></td>
+        <td class="clickable" {{action "sortBy" 'neighborhood'}}>
+          <label class="clickable">
+            Neighborhood
+            <i class="fa icon-color {{if sortedOnNeighborhood (if sortAscend "fa-sort-alpha-asc" "fa-sort-alpha-desc") 'fa-unsorted'}}"></i>
+          </label>
+        </td>
+        <td class="clickable" {{action "sortBy" 'visited'}}>
+          <label class="clickable">
+            Visited
+            <i class="fa icon-color {{if sortedOnVisited (if sortAscend "fa-sort-alpha-asc" "fa-sort-alpha-desc") 'fa-unsorted'}}"></i>
+          </label>
+        </td>
+        <td class="clickable" {{action "sortBy" 'comments'}}>
+          <label class="clickable">
+            Comments
+            <i class="fa icon-color {{if sortedOnComments (if sortAscend "fa-sort-alpha-asc" "fa-sort-alpha-desc") 'fa-unsorted'}}"></i>
+          </label>
+        </td>
+        <td><label>Vote</label></td>
+      </thead>
+      <tbody>
         {{#each sortedRestaurants as |restaurant|}}
-            <tr>
-                <td>{{restaurant.name}}</td>
-                <td>
-                  {{#if restaurant.menu}}
-                    <a target="_blank" href="{{restaurant.menu}}"><i class="fa fa-external-link"></i></a>
-                  {{/if}}
-                </td>
-                <td>{{restaurant.neighborhood}}</td>
-                <td>{{restaurant.comments}}</td>
-                <td>{{check-box action='checked' restaurant=restaurant count=selectedList.length}}</td>
-            </tr>
+          <tr>
+            <td>{{restaurant.name}}</td>
+            <td>
+              {{#if restaurant.menu}}
+                <a target="_blank" href="{{restaurant.menu}}"><i class="fa fa-external-link"></i></a>
+              {{/if}}
+            </td>
+            <td>{{restaurant.neighborhood}}</td>
+            <td>{{#if restaurant.visited}}<span class="visited">Yes</span>{{else}}<span class="not-visited">No</span>{{/if}}</td>
+            <td>{{restaurant.comments}}</td>
+            <td>{{check-box action='checked' restaurant=restaurant count=selectedList.length}}</td>
+          </tr>
         {{/each}}
-        </tbody>
+      </tbody>
     </table>
     <button class='btn btn-primary pull-right' {{action 'vote'}}>Submit Vote</button>
+  </div>
 {{else}}
     <p class='text-center'>Sorry, no restaurants found <i class="fa fa-meh-o fa-lg"></i></p>
 {{/if}}

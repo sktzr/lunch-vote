@@ -1,20 +1,22 @@
-<h3>Add a new Restaurant</h3>
- <div class="form">
-   <label><span><i class="fa fa-cutlery"></i></span>  Restaurant Name</label>
-   <br/>
-   {{input type="text" value=nameInput placeholder="Enter Restaurant Name"}}
-   <br/>
-   <label><span><i class="fa fa-link"></i></span>  Menu URL</label>
-   <br/>
-   {{input type="text" value=menuInput placeholder="Enter Menu URL"}}
-   <br/>
-   <label><span><i class="fa fa-map-marker"></i></span>  Neighborhood</label>
-   <br/>
-   {{input type="text" value=neighborhoodInput placeholder="Enter Neighborhood or Address"}}
-   <br/>
-   <label><span><i class="fa fa-commenting"></i></span>  Comments</label>
-   <br/>
-   {{input type="text" value=commentInput placeholder="Enter Comments"}}
-   <br/>
-   <a class="btn btn-primary pull-right" {{action 'createNewRestaurant'}} role="button">Create Restaurant</a>
+<div class="mid-opacity rounded-corners clearfix">
+  <h3>Add a new Restaurant</h3>
+   <div class="form">
+     <label><span><i class="fa fa-cutlery"></i></span>  Restaurant Name</label>
+     <br/>
+     {{input type="text" value=nameInput placeholder="Enter Restaurant Name"}}
+     <br/>
+     <label><span><i class="fa fa-link"></i></span>  Menu URL</label>
+     <br/>
+     {{input type="text" value=menuInput placeholder="Enter Menu URL"}}
+     <br/>
+     <label><span><i class="fa fa-map-marker"></i></span>  Neighborhood</label>
+     <br/>
+     {{input type="text" value=neighborhoodInput placeholder="Enter Neighborhood or Address"}}
+     <br/>
+     <label><span><i class="fa fa-commenting"></i></span>  Comments</label>
+     <br/>
+     {{input type="text" value=commentInput placeholder="Enter Comments"}}
+     <br/>
+     <a class="btn btn-primary pull-right" {{action 'createNewRestaurant'}} role="button">Create Restaurant</a>
+   </div>
  </div>

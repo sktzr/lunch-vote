@@ -1,5 +1,11 @@
 html, body {
   margin: 20px;
+  background-image: url('../img/St-Louis-Map-blacks-and-whites-smaller-purple.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: left top;
+  background-color: #f0eafd;
+  /*darker purple #d0bdfa*/
 }
 
 span.visited {
@@ -8,4 +14,23 @@ span.visited {
 
 span.not-visited {
     color: red;
+}
+
+.jumbotron-color {
+  /*background-color: #d0bdfa;
+  opacity: 0.85;*/
+  background: rgb(208, 189, 250); /* Fallback for older browsers without RGBA-support */
+  background: rgba(208, 189, 250, 0.4);
+}
+
+.mid-opacity {
+  /*background-color: #d0bdfa;
+  opacity: 0.5;*/
+  background: rgb(208, 189, 250); /* Fallback for older browsers without RGBA-support */
+  background: rgba(208, 189, 250, 0.4);
+}
+
+.rounded-corners {
+  border-radius: 5px;
+  padding: 20px 20px 20px 20px;
 }

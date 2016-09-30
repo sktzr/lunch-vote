@@ -4,7 +4,23 @@ export default Ember.Controller.extend({
   selectedList: [],
   sortProperties: ['visited'],
   restaurantSorting: ['name'],
-  sortedRestaurants: Ember.computed.sort('model', 'restaurantSorting'),
+  sortField: "",
+  sortAscend: true,
+  sortedOnName: Ember.computed.equal("sortField", "name"),
+  sortedOnNeighborhood: Ember.computed.equal('sortField', "neighborhood"),
+  sortedOnVisited: Ember.computed.equal('sortField', "visited"),
+  sortedOnComments: Ember.computed.equal('sortField', "comments"),
+
+  sortedRestaurants: (function (){
+    let restaurants = this.get('model');
+    if (this.get('sortField')) {
+      restaurants = restaurants.sortBy(this.get('sortField'));
+      if (!this.get('sortAscend')) {
+        restaurants = restaurants.reverse();
+      }
+    }
+    return restaurants;
+  }).property("sortAscend", "sortField", 'model.[]'),
   actions: {
     vote: function() {
         var selectedList = this.get('selectedList');
@@ -26,6 +42,15 @@ export default Ember.Controller.extend({
       }
 
       return false;
-    }
+    },
+    sortBy(field){
+      if (this.get("sortField") !== field) {
+        this.set("sortAscend", true);
+        this.set("sortField", field);
+      } else {
+        if (Ember.isPresent(this.get("sortField"))) {this.toggleProperty('sortAscend');}
+        this.set('currentPage', 1);
+      }
+    },
   }
 });

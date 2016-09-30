@@ -1,25 +1,30 @@
-
 {{#if model}}
+<div class="mid-opacity rounded-corners clearfix">
   <h4>Results</h4>
   <table class="table">
-        <thead>
-        <th>Name</th><th>Menu</th><th>Neighborhood</th><th>Comments</th><th>Votes</th>
-        </thead>
-        <tbody>
-        {{#each sortedRestaurants as |restaurant|}}
-            <tr>
-                <td>{{restaurant.name}}</td>
-                <td>
-                  {{#if restaurant.menu}}
-                    <a target="_blank" href="{{restaurant.menu}}"><i class="fa fa-external-link"></i></a>
-                  {{/if}}
-                </td>
-                <td>{{restaurant.neighborhood}}</td>
-                <td>{{restaurant.comments}}</td>
-                <td>{{restaurant.votes}}</td>
-            </tr>
-        {{/each}}
-        </tbody>
+    <thead>
+      <td><label>Name</label></td>
+      <td><label>Menu</label></td>
+      <td><label>Neighborhood</label></td>
+      <td><label>Comments</label></td>
+      <td><label>Votes</label></td>
+    </thead>
+    <tbody>
+      {{#each sortedRestaurants as |restaurant|}}
+        <tr>
+          <td>{{restaurant.name}}</td>
+          <td>
+            {{#if restaurant.menu}}
+              <a target="_blank" href="{{restaurant.menu}}"><i class="fa fa-external-link"></i></a>
+            {{/if}}
+          </td>
+          <td>{{restaurant.neighborhood}}</td>
+          <td>{{restaurant.comments}}</td>
+          <td>{{restaurant.votes}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
     </table>
-  <button class="btn btn-sm" {{action "clearVotes"}}>Clear out all votes</button>
+  <button class="btn btn-danger btn-sm" {{action "clearVotes"}}>Clear out all votes</button>
+</div>
 {{/if}}
