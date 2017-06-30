@@ -6,5 +6,6 @@ export default DS.Model.extend({
   visited: DS.attr('boolean'),
   comments: DS.attr('string'),
   neighborhood: DS.attr('string'),
-  votes: DS.attr('number')
+  votes: DS.attr('number'),
+  winner: DS.attr('boolean'),
 });

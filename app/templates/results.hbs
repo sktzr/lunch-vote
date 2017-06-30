@@ -11,8 +11,14 @@
     </thead>
     <tbody>
       {{#each sortedRestaurants as |restaurant|}}
-        <tr>
-          <td>{{restaurant.name}}</td>
+        <tr class="{{if restaurant.winner 'success' ''}}">
+          <td>
+            {{#if restaurant.winner}}
+              <i class="fa fa-star-o"></i> {{restaurant.name}} <i class="fa fa-star-o"></i>
+            {{else}}
+              {{restaurant.name}}
+            {{/if}}
+          </td>
           <td>
             {{#if restaurant.menu}}
               <a target="_blank" href="{{restaurant.menu}}"><i class="fa fa-external-link"></i></a>
@@ -26,5 +32,6 @@
     </tbody>
     </table>
   <button class="btn btn-danger btn-sm" {{action "clearVotes"}}>Clear out all votes</button>
+  <button class="btn btn-primary btn-sm pull-right" {{action "breakTie"}}>Tie Breaker!</button>
 </div>
 {{/if}}
