@@ -19,14 +19,16 @@ export default Ember.Controller.extend({
     },
     breakTie: function(){
       const maxNumberOfVotes = this.get('maxNumberOfVotes');
-      this.get('store').findAll('restaurant').then(function (restaurants) {
-        const tiedRestaurants = restaurants.filterBy('votes', maxNumberOfVotes);
-        if (tiedRestaurants.length > 1 && !tiedRestaurants.any(r => r.get('winner') === true)) {
-          const index = Math.floor((Math.random() * tiedRestaurants.length));
-          tiedRestaurants[index].set('winner', true);
-          tiedRestaurants[index].save();
-        }
-      });
+      if (maxNumberOfVotes > 0) {
+        this.get('store').findAll('restaurant').then(function (restaurants) {
+            const tiedRestaurants = restaurants.filterBy('votes', maxNumberOfVotes);
+            if (tiedRestaurants.length > 1 && !tiedRestaurants.any(r => r.get('winner') === true)) {
+              const index = Math.floor((Math.random() * tiedRestaurants.length));
+              tiedRestaurants[index].set('winner', true);
+              tiedRestaurants[index].save();
+            }
+        });
+      }
       return false;
     },
 
